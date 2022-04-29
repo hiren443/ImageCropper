@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="ImageCropper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3Z-81-LPo">
+                                <rect key="frame" x="153" y="108" width="108" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="3v7-Gy-tBd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Select Image"/>
+                                <connections>
+                                    <action selector="imageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YYj-p4-Akf"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wO1-ZZ-iey">
+                                <rect key="frame" x="20" y="159" width="374" height="683"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wO1-ZZ-iey" firstAttribute="top" secondItem="M3Z-81-LPo" secondAttribute="bottom" constant="20" id="Fc0-Tt-N3V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wO1-ZZ-iey" secondAttribute="bottom" constant="20" id="KZv-Z1-9cg"/>
+                            <constraint firstItem="M3Z-81-LPo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QmB-PD-7Xv"/>
+                            <constraint firstItem="M3Z-81-LPo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="gyO-KB-cju"/>
+                            <constraint firstItem="wO1-ZZ-iey" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hXV-5j-UED"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wO1-ZZ-iey" secondAttribute="trailing" constant="20" id="xp7-J6-kQz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageButton" destination="M3Z-81-LPo" id="6sQ-me-Wz5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="97.767857142857139"/>
+        </scene>
+        <!--Image Crop View Controller-->
+        <scene sceneID="XZ1-YS-gSR">
+            <objects>
+                <viewController storyboardIdentifier="ImageCropViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y6I-UT-3IH" customClass="ImageCropViewController" customModule="ImageCropper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JsV-kY-74H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M51-7f-CHR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="755"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-Z2-pDl" customClass="DraggableView" customModule="ImageCropper" customModuleProvider="target">
+                                <rect key="frame" x="86" y="328" width="241" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-sS-JPb">
+                                <rect key="frame" x="179" y="800" width="56" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="HJL-VE-1hV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Crop"/>
+                                <connections>
+                                    <action selector="buttonCropTapped:" destination="y6I-UT-3IH" eventType="touchUpInside" id="bkM-PP-z88"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aBj-sc-ga2" customClass="ResizableView" customModule="ImageCropper" customModuleProvider="target">
+                                <rect key="frame" x="86" y="514" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hdY-WU-sXE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="M51-7f-CHR" firstAttribute="leading" secondItem="hdY-WU-sXE" secondAttribute="leading" id="31Q-n2-teL"/>
+                            <constraint firstItem="hdY-WU-sXE" firstAttribute="bottom" secondItem="8wi-sS-JPb" secondAttribute="bottom" constant="31" id="Skz-XC-wBm"/>
+                            <constraint firstItem="M51-7f-CHR" firstAttribute="trailing" secondItem="hdY-WU-sXE" secondAttribute="trailing" id="SnC-XX-UbQ"/>
+                            <constraint firstItem="M51-7f-CHR" firstAttribute="top" secondItem="JsV-kY-74H" secondAttribute="top" id="dsq-as-iHh"/>
+                            <constraint firstItem="8wi-sS-JPb" firstAttribute="top" secondItem="M51-7f-CHR" secondAttribute="bottom" constant="45" id="gtY-j7-2rc"/>
+                            <constraint firstItem="hdY-WU-sXE" firstAttribute="bottom" secondItem="8wi-sS-JPb" secondAttribute="bottom" constant="31" id="nZL-YW-43x"/>
+                            <constraint firstItem="8wi-sS-JPb" firstAttribute="centerX" secondItem="JsV-kY-74H" secondAttribute="centerX" id="yul-UF-Lv9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cropButton" destination="8wi-sS-JPb" id="6aW-g8-rPL"/>
+                        <outlet property="cropView" destination="Xmz-Z2-pDl" id="Ubp-8i-ElC"/>
+                        <outlet property="imageView" destination="M51-7f-CHR" id="FeN-qG-Ije"/>
+                        <outlet property="resizableView" destination="aBj-sc-ga2" id="TbG-Rk-f0d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xrJ-9B-VWb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="678.26086956521749" y="109.82142857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
